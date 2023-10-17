@@ -1,6 +1,8 @@
 package pro.sky.homeWork18.service;
 
 import org.springframework.stereotype.Service;
+import pro.sky.homeWork18.exceprion.EmployeeAlreadyAddedException;
+import pro.sky.homeWork18.exceprion.EmployeeNotFoundException;
 import pro.sky.homeWork18.model.Employee;
 
 import java.util.ArrayList;
@@ -19,6 +21,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee add(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
+        if (employeeList.contains(employee)){
+            throw new EmployeeAlreadyAddedException();
+        }
         employeeList.add(employee);
         return employee;
     }
@@ -30,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             employeeList.remove(employee);
             return employee;
         }
-        return null;
+        throw new EmployeeNotFoundException();
     }
 
     @Override
@@ -39,6 +44,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (employeeList.contains(employee)) {
             return employee;
         }
-        return null;
+        throw new EmployeeNotFoundException();
     }
 }
