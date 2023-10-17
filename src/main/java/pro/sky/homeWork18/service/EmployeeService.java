@@ -8,4 +8,6 @@ public interface EmployeeService {
     Employee remove(String firstName, String lastName);
 
     Employee find(String firstName, String lastName);
+
+    Object findAll();
 }

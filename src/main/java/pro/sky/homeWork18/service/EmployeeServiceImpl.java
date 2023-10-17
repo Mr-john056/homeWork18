@@ -6,6 +6,7 @@ import pro.sky.homeWork18.exceprion.EmployeeNotFoundException;
 import pro.sky.homeWork18.model.Employee;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final List<Employee> employeeList;
+    private Object Collectios;
 
     public EmployeeServiceImpl() {
         this.employeeList = new ArrayList<>();
@@ -45,5 +47,10 @@ public class EmployeeServiceImpl implements EmployeeService {
             return employee;
         }
         throw new EmployeeNotFoundException();
+    }
+
+    @Override
+    public Object findAll() {
+        return new ArrayList<>(employeeList);
     }
 }
