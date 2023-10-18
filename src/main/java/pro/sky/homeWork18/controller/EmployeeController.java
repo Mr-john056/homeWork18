@@ -1,5 +1,6 @@
 package pro.sky.homeWork18.controller;
 
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
+
     private final EmployeeService service;
 
     public EmployeeController(EmployeeService service) {
@@ -34,6 +36,8 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public Collection<Employee> findAll{return service.findAll();
+    public Collection<Employee> findAllEmployee(@RequestParam String firstName, @RequestParam String lastName)
+    {
+        return service.findAll();
     }
 }

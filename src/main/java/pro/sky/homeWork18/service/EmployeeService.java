@@ -2,6 +2,8 @@ package pro.sky.homeWork18.service;
 
 import pro.sky.homeWork18.model.Employee;
 
+import java.util.Collection;
+
 public interface EmployeeService {
     Employee add(String firstName, String lastName);
 
@@ -9,5 +11,5 @@ public interface EmployeeService {
 
     Employee find(String firstName, String lastName);
 
-    Object findAll();
+    Collection<Employee> findAll();
 }

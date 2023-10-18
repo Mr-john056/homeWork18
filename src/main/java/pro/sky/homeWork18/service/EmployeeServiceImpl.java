@@ -50,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Object findAll() {
+    public Collection<Employee> findAll() {
         return new ArrayList<>(employeeList);
     }
 }
